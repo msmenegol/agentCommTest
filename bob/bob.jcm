@@ -1,0 +1,8 @@
+mas bob {
+    agent bob : bob.asl {
+          ag-arch: EJasonArch // architecture
+    }
+
+    //platform: centralised()
+    //asl-path: src/agt, src/agt/inc
+}

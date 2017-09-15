@@ -1,0 +1,8 @@
+mas alice {
+    agent alice : alice.asl {
+          ag-arch: EJasonArch // architecture
+    }
+
+    //platform: centralised()
+    //asl-path: src/agt, src/agt/inc
+}
