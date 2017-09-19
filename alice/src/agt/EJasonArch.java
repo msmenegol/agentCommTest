@@ -71,9 +71,9 @@ public class EJasonArch extends AgArch {
     Circumstance C = this.getTS().getC();
     Message im = new Message(); // pega a msgs da tua conexao
     while (!this.mailBox.isEmpty()) {
+      im = this.mailBox.remove(0); // pega  aprox. msgs da tua conexao
       C.addMsg(im);
       if (logger.isLoggable(Level.FINE)) logger.fine("received message: " + im);
-      im = this.mailBox.remove(0); // pega  aprox. msgs da tua conexao
     }
   }
 
