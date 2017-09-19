@@ -68,7 +68,7 @@ public class EJasonArch extends AgArch {
 
   @Override
   public void checkMail() {
-    Circumstance C = this.getTS().getC();
+    Circumstance C = getTS().getC();
     Message im = new Message(); // pega a msgs da tua conexao
     while (!this.mailBox.isEmpty()) {
       im = this.mailBox.remove(0); // pega  aprox. msgs da tua conexao
