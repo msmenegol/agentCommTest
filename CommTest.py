@@ -56,6 +56,9 @@ while True:
             decodeData = decodeSock(data, receivePort)
 
             if '*' in decodeData:
+                if '**' in decodeData:
+                    print("bc: " + decodeData)
+                    decodeData = decodeData[1:]
                 if receivePort == ALICEPORT:
                     sendTo(BOBPORT,writable,encodeSock(decodeData,BOBPORT))
                     print('sending msg to bob')
