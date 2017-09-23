@@ -50,7 +50,12 @@ public class JasonBulb implements Runnable{
 
     this.ready = true;
 
+    bulbSend(cortex.getAgName());
+
     while(true){
+      if(this.socket.isClosed()){
+        break;
+      }
       bulbReceive();
       cortex.wake();
     }
@@ -110,11 +115,23 @@ public class JasonBulb implements Runnable{
         }
       } catch(Exception e) {
         e.printStackTrace();
+        this.out.close();
+
+        try{
+          this.in.close();
+          this.socket.close();
+        } catch(Exception closeException){
+          closeException.printStackTrace();
+        }
       }
     }
   }
     // get the socket instance
   private Socket getSocket() {
        return socket;
+  }
+
+  public boolean isReady() {
+    return this.ready;
   }
 }

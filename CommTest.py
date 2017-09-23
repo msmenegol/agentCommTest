@@ -22,7 +22,6 @@ def encodeSock(msg, port):
 def createSocket(TCP_PORT):
     serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serverSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    #serverSocket.setblocking(0)
     serverSocket.bind(('localhost', TCP_PORT))
     serverSocket.listen(5)
 
@@ -65,7 +64,8 @@ while True:
                     sendTo(ALICEPORT,writable,encodeSock(decodeData,ALICEPORT))
                     print('sending msg to alice')
                     print(decodeData)
-
+            else:
+                print("un-message: " + decodeData)
 
     time.sleep(0.02)
 #copter.close()
